@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+<head jsf:id="head">
+<title>Teste</title>
+</head>
+<body jsf:id="body">
+	<form jsf:id="frm">
+	<header>
+	<h1>Lista de Nomes</h1><br/>
+	<h2>Adicione o seu</h2>
+	</header>
+	<input jsf:id="teste" type="text" placeholder="Nome" jsf:value="#{helloController.nome}"/>
+	<button type="Submit" jsf:actionListener="#{helloController.addNome()}">
+	Enviar
+	<f:ajax execute="@form" render="saida" />
+	</button>
+		<!-- Testes, Comecando com xhtml normal !--> 
+		<h:dataTable id="saida" value="#{helloController.nomes}" var="nome">
+		<h:column>
+			<h:outputText value="#{nome}"/>
+		</h:column>
+		</h:dataTable>
+		
+	
+	</form>
+
+</body>
+
+</html>
